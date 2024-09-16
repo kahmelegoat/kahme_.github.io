@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kahmé Login</title>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Empêche la soumission normale du formulaire
+
+            // Récupération des valeurs des champs
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Validation simple des champs (ajustez selon vos besoins)
+            if (email && password) {
+                // Vous pouvez ajouter ici des vérifications supplémentaires si nécessaire
+                // Exemple: appeler une API pour vérifier les informations
+
+                // Redirection vers home.html si les informations sont correctes
+                window.location.href = 'home.html';
+            } else {
+                // Affichage d'un message d'erreur si les informations ne sont pas correctes
+                alert('Veuillez entrer votre e-mail et votre mot de passe.');
+            }
+        }
+
+        // Fonction pour afficher/masquer le mot de passe
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePassword.classList.add('fa-eye-slash');
+                togglePassword.classList.remove('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                togglePassword.classList.add('fa-eye');
+                togglePassword.classList.remove('fa-eye-slash');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.getElementById('togglePassword');
+            if (togglePassword) {
+                togglePassword.addEventListener('click', togglePasswordVisibility);
+            }
+        });
+    </script>
+</head>
+<body>
+    <canvas id="background"></canvas>
+    <form class="form" onsubmit="handleLogin(event)">
+        <!-- Email -->
+        <div class="flex-column">
+            <label for="email">Email</label>
+        </div>
+        <div class="form-input">
+            <i class="fa-solid fa-at"></i>
+            <input type="email" id="email" class="input" placeholder="Enter your Email" required>
+        </div>
+
+        <!-- Password -->
+        <div class="flex-column">
+            <label for="password">Mot De Passe</label>
+        </div>
+        <div class="form-input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" class="input" placeholder="Enter your Password" required>
+            <i class="fa-solid fa-eye" id="togglePassword"></i>
+        </div>
+
+        <div class="flex-row">
+            <div>
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Souviens-toi de moi</label>
+            </div>
+            <a href="forgot-password.html" class="back-to-login">Mot De Passe oublié</a>
+        </div>
+        <button type="submit" class="button-submit">Se connecter</button>
+        <p class="p">
+            Vous n'avez pas de compte ?
+            <a href="signup.html" class="span">S'inscrire</a>
+        </p>
+
+        <p class="p line">Ou avec</p>
+
+        <!-- Social Login buttons -->
+        <div class="flex-row">
+            <button class="btn">
+                <img src="https://codetheworld.io/wp-content/uploads/2024/04/google-icon.png" alt="Google">
+                Google
+            </button>
+            <button class="btn">
+                <img src="https://codetheworld.io/wp-content/uploads/2024/04/apple-icon.png" alt="Apple">
+                Apple
+            </button>
+        </div>
+    </form>
+    
+</body>
+</html>

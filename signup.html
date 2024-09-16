@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kahmé SignUp</title>
+    <script>
+        function handleSignUp(event) {
+            event.preventDefault(); // Empêche la soumission normale du formulaire
+
+            // Récupération des valeurs des champs
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const termsCheckbox = document.getElementById('termsCheckbox').checked;
+
+            // Validation des champs
+            if (email && username && password && confirmPassword && termsCheckbox) {
+                if (password === confirmPassword) {
+                    // Vous pouvez ajouter ici des vérifications supplémentaires si nécessaire
+                    // Exemple: appeler une API pour créer un utilisateur
+
+                    // Redirection vers index.html si les informations sont correctes
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Les mots de passe ne correspondent pas.');
+                }
+            } else {
+                alert('Veuillez remplir tous les champs et accepter les termes et conditions.');
+            }
+        }
+
+        // Fonction pour afficher/masquer le mot de passe
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const togglePassword = document.getElementById('togglePassword');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                confirmPasswordInput.type = 'text';
+                togglePassword.classList.add('fa-eye-slash');
+                togglePassword.classList.remove('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                confirmPasswordInput.type = 'password';
+                togglePassword.classList.add('fa-eye');
+                togglePassword.classList.remove('fa-eye-slash');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.getElementById('togglePassword');
+            if (togglePassword) {
+                togglePassword.addEventListener('click', togglePasswordVisibility);
+            }
+        });
+    </script>
+</head>
+<body>
+    <canvas id="background"></canvas>
+    <form class="form" onsubmit="handleSignUp(event)">
+        <!-- Email -->
+        <div class="flex-column">
+            <label for="email">Email</label>
+        </div>
+        <div class="form-input">
+            <i class="fa-solid fa-at"></i>
+            <input type="email" id="email" class="input" placeholder="Enter your Email" required>
+        </div>
+
+        <!-- Username -->
+        <div class="flex-column">
+            <label for="username">Nom d'utilisateur</label>
+        </div>
+        <div class="form-input">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="username" class="input" placeholder="Enter your Username" required>
+        </div>
+
+        <!-- Password -->
+        <div class="flex-column">
+            <label for="password">Mot De Passe</label>
+        </div>
+        <div class="form-input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" class="input" placeholder="Enter your Password" required>
+            <i class="fa-solid fa-eye" id="togglePassword"></i>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="flex-column">
+            <label for="confirmPassword">Confirmez le mot de passe</label>
+        </div>
+        <div class="form-input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="confirmPassword" class="input" placeholder="Confirm your Password" required>
+        </div>
+
+        <!-- Terms and conditions -->
+        <div class="flex-row">
+            <div>
+                <input type="checkbox" id="termsCheckbox" required>
+                <label for="termsCheckbox">J'accepte les <a href="terms.html" target="_blank">Termes et conditions</a></label>
+            </div>
+        </div>
+
+        <!-- Sign Up button -->
+        <button type="submit" class="button-submit">S'inscrire</button>
+
+        <!-- Redirect to Login page -->
+        <p class="p">
+            Vous avez déjà un compte ?
+            <a href="index.html" class="span">Se connecter</a>
+        </p>
+
+        <p class="p line">Ou avec</p>
+
+        <!-- Social Sign Up buttons -->
+        <div class="flex-row">
+            <button class="btn">
+                <img src="https://codetheworld.io/wp-content/uploads/2024/04/google-icon.png" alt="Google">
+                Google
+            </button>
+            <button class="btn">
+                <img src="https://codetheworld.io/wp-content/uploads/2024/04/apple-icon.png" alt="Apple">
+                Apple
+            </button>
+        </div>
+    </form>
+</body>
+</html>
