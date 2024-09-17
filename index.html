@@ -1,70 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <title>Login Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="styles.css">
+	<title>Login Page</title>
 </head>
-
 <body>
-
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form>
-                <h1>Créer un compte</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>    
-                </div>
-                <span> ou utilisez votre email pour vous inscrire</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>S'inscrire</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form>
-                <h1>Se connecter</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                </div>
-                <span>ou utilisez votre email pour vous connectez</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#" id="forgot-password-link">Vous avez oublié votre mot de passe ?</a>
-                <a href="home.html"><button type="button">Se connecter</button></a>
-            </form>
-        </div>
-
-        <div class="forgot-password" id="forgot-password">
-            <h2>Tu as oublié ton mot de passe</h2>
-            <p>Rentre ton email juste en bas</p>
-            <input type="email" placeholder="Email">
-            <button>Envoyer</button>
-        </div>
-
-        <div class="toggle-container" id="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Content de te revoir!</h1>
-                    <p>Entrez vos informations personnelles pour utiliser toutes les fonctionnalités du site</p>
-                    <button class="hidden" id="login">Se connecter</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Bonjour mon ami!</h1>
-                    <p>Inscrivez-vous avec vos informations personnelles pour utiliser toutes les fonctionnalités du site</p>
-                    <button class="hidden" id="register">S'inscrire</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="scripts.js"></script>
+	<div class="container" id="container">
+		<div class="form-container sign-up">
+			<form id="signup-form" action="home.html" method="POST">
+				<h1>Créer un compte</h1>
+				<div class="social-icons">
+					<a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+					<a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+				</div>
+				<h5>ou utilisez votre email pour vous s'inscrire</h5>
+				<input type="text" placeholder="Name" name="name" required>
+				<input type="email" placeholder="Email" name="email" required>
+				<input type="password" placeholder="Password" name="password" required>
+				<!-- Bouton "S'inscrire" -->
+				<button type="submit">S'inscrire</button>
+			</form>
+		</div>
+		<div class="form-container sign-in">
+			<form id="login-form" action="home.html" method="POST">
+				<h1>Se connecter</h1>
+				<div class="social-icons">
+					<a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+					<a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+				</div>
+				<h5>ou utilisez votre email pour vous connectez</h5>
+				<input type="email" placeholder="Email" required>
+				<input type="password" placeholder="Password" required>
+				<a href="#" id="forgot-password-link">Vous avez oublié votre mot de passe ?</a>
+				
+				<!-- Bouton "Se connecter" -->
+				<a href="home.html" id="login-button" class="submit-button">
+					<button type="button">Se connecter</button>
+				</a>
+			</form>
+		</div>
+		<div class="toggle-container" id="toggle-container">
+			<div class="toggle">
+				<div class="toggle-panel toggle-left">
+					<h1>Content de te revoir!</h1>
+					<p>Entrez vos informations personnelles pour utiliser toutes les fonctionnalités du site</p>
+					<button class="hidden" id="login">Se connecter</button>
+				</div>
+				<div class="toggle-panel toggle-right">
+					<h1>Bonjour mon ami!</h1>
+					<p>Inscrivez-vous avec vos informations personnelles pour utiliser toutes les fonctionnalités du site</p>
+					<button class="hidden" id="register">S'inscrire</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="forgot-password" id="forgot-password">
+		<h2>Tu as oublié ton mot de passe</h2>
+		<p>Rentre ton email juste en bas</p>
+		<input type="email" placeholder="Email" required>
+		<button>Envoyer</button>
+	</div>
+	<script src="scripts.js"></script>
 </body>
 
 </html>
